@@ -3,7 +3,9 @@ import { StyleSheet, View, Text, StatusBar } from 'react-native';
 
 import CustomStatusBar from './components/CustomStatusBar';
 import Splash from './components/Splash';
+
 import EmailListScreen from './screens/EmailListScreen';
+import NewEmailScreen from './screens/NewEmailScreen';
 
 class App extends Component {
 
@@ -13,7 +15,7 @@ class App extends Component {
       <Splash>
         <View>
           <CustomStatusBar />
-          <EmailListScreen />
+          <NewEmailScreen />
         </View>
       </Splash>
     )

@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, ListView, Navigator, TouchableOpacity, TextInput } from 'react-native';
-import AppNavBar from '../components/AppNavBar'
+import InboxNavBar from '../components/InboxNavBar'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import FaIcon from 'react-native-vector-icons/FontAwesome';
 
@@ -24,7 +24,7 @@ class EmailListScreen extends Component {
     console.log(data);
     return (
       <View>
-        <AppNavBar/>
+        <InboxNavBar/>
         <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', backgroundColor: "#fafafa"}}>
           { search }
           <TextInput

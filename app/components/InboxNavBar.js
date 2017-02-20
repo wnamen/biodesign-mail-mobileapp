@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-class AppNavBar extends Component {
+class InboxNavBar extends Component {
 
   render() {
     const drawer = (<View style={styles.drawerButton}><Icon name="menu" size={30} color="#525253" /></View>)
@@ -54,4 +54,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default AppNavBar;
+export default InboxNavBar;
