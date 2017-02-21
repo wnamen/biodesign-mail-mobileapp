@@ -15,6 +15,10 @@ class EmailScreen extends Component {
 
   }
 
+  navigateToAttachment = () => {
+    this.props.navigator.push({ ident: 'EmailAttachment' })
+  }
+
   render () {
     const image = (<View style={styles.imageContainer}><FaIcon name="picture-o" size={30} color='white' /></View>);
     const currentEmailReply = (<Icon name="reply" size={23} color="#9ca4ab" />);
@@ -75,10 +79,10 @@ class EmailScreen extends Component {
             <Text style={styles.attachmentTitle}>1 Attachment</Text>
           </View>
 
-          <View style={styles.attachmentContainer}>
+          <TouchableOpacity style={styles.attachmentContainer} onPress={this.navigateToAttachment}>
             { image }
             <Text style={styles.attachmentText}>burger-week-2013.jpg</Text>
-          </View>
+          </TouchableOpacity>
 
         </ScrollView>
         <View style={styles.tabBar}>

@@ -125,6 +125,7 @@ var styles = StyleSheet.create({
   subjectContainer: {
     flex: 1,
     flexDirection: 'row',
+    flexWrap: 'nowrap'
   },
   subjectTextContainer: {
     flex: 1,

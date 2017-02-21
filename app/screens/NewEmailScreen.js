@@ -17,7 +17,7 @@ class NewEmailScreen extends Component {
     const plus = (<FaIcon name="plus" size={18} color='#9ca4ab' />)
 
     return (
-      <View  style={{flex: 1}}>
+      <View style={{flex: 1}}>
         <NewEmailNavBar navigator={this.props.navigator}/>
         <View style={styles.container}>
           <View style={styles.emailDetailFields}>
