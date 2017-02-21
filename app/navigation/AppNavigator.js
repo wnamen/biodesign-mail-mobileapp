@@ -5,6 +5,7 @@ import { Navigator, View } from 'react-native';
 
 import EmailListScreen from '../screens/EmailListScreen';
 import NewEmailScreen from '../screens/NewEmailScreen';
+import EmailScreen from '../screens/EmailScreen';
 
 class AppNavigator extends Component {
 
@@ -25,6 +26,12 @@ class AppNavigator extends Component {
           <NewEmailScreen
             {...globalNavigatorProps} />
         )
+      case "EmailView":
+        return (
+          <EmailScreen
+            {...globalNavigatorProps} />
+        )
+
     }
   }
 

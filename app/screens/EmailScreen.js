@@ -6,95 +6,23 @@ import EmailNavBar from '../components/EmailNavBar';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import FaIcon from 'react-native-vector-icons/FontAwesome';
 
-var data = require('../staticData');
-
-class EmailListScreen extends Component {
+class EmailScreen extends Component {
   constructor(props) {
     super(props)
-    var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1.id != r2.id})
-    this.state = {
-      dataSource: ds.cloneWithRows(data),
-      iconColor: '#9ca4ab'
-    }
+
   }
 
   render () {
-    const search = (<Icon name="search" size={18} color={this.state.iconColor} />)
 
     console.log(this.props);
     return (
       <View style={{flex: 1}}>
-        <InboxNavBar navigator={this.props.navigator}/>
+        <EmailNavBar navigator={this.props.navigator}/>
         <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', backgroundColor: "#fafafa"}}>
-          { search }
-          <TextInput
-            style={{height: 40, width: 300}}
-            placeholder='Search'
-            color="#525253"
-            fontSize={15}
-            onFocus={(e) => this.setState({iconColor: '#2A9FD8'})}
-            onBlur={(e) => this.setState({iconColor: '#9ca4ab'})}
-            onChangeText={(text) => this.setState({text})}
-            value={this.state.text}
-            />
-        </View>
-        <ListView
-          dataSource={this.state.dataSource}
-          renderRow={this.renderEmailRow} />
 
+        </View>
       </View>
     )
-  }
-
-  renderEmailRow(email) {
-    const attachment = (<FaIcon name="paperclip" size={15} color="#525253" />)
-
-    if (email.time === '14:39') {
-      return (
-        <TouchableOpacity style={styles.container}>
-          <FaIcon name="circle" size={18} color="#1cbd9d"/>
-          <View style={styles.emailContainer}>
-            <View style={styles.subjectContainer}>
-              <Text style={styles.subjectText2Container}>{email.from}</Text>
-              <Text style={styles.subjectTime2Container}>{attachment} {email.time}</Text>
-            </View>
-            <Text style={styles.text2Container}>{email.subject}</Text>
-            <Text style={styles.textContainer}>{email.text}</Text>
-          </View>
-        </TouchableOpacity>
-      )
-    } else if (email.time === '8:14') {
-      return (
-        <TouchableOpacity style={styles.container}>
-          <FaIcon name="circle" size={18} color="#1cbd9d"/>
-          <View style={styles.emailContainer}>
-            <View style={styles.subjectContainer}>
-              <Text style={styles.subjectText2Container}>{email.from}</Text>
-              <Text style={styles.subjectTime2Container}>{email.time}</Text>
-            </View>
-            <Text style={styles.text2Container}>{email.subject}</Text>
-            <Text style={styles.textContainer}>{email.text}</Text>
-          </View>
-
-        </TouchableOpacity>
-      )
-    } else {
-
-      return (
-        <TouchableOpacity style={styles.container}>
-          <FaIcon name="circle" size={18} color="white"/>
-          <View style={styles.emailContainer}>
-            <View style={styles.subjectContainer}>
-              <Text style={styles.subjectTextContainer}>{email.from}</Text>
-              <Text style={styles.subjectTimeContainer}>{email.time}</Text>
-            </View>
-            <Text style={styles.textContainer}>{email.subject}</Text>
-            <Text style={styles.textContainer}>{email.text}</Text>
-          </View>
-
-        </TouchableOpacity>
-      )
-    }
   }
 }
 
@@ -167,4 +95,4 @@ var styles = StyleSheet.create({
   },
 });
 
-export default EmailListScreen;
+export default EmailScreen;

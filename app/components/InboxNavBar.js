@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 class InboxNavBar extends Component {
 
-  navigateToNewEmail = (screen) => {
+  navigateToNewEmail = () => {
     this.props.navigator.push({
       ident: "NewEmail",
       sceneConfig: Navigator.SceneConfigs.FloatFromBottom

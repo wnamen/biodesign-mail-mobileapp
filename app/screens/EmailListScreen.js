@@ -16,11 +16,15 @@ class EmailListScreen extends Component {
       dataSource: ds.cloneWithRows(data),
       iconColor: '#9ca4ab'
     }
+    this.navigateToEmail = this.navigateToEmail.bind(this);
+  }
+
+  navigateToEmail = () => {
+    this.props.navigator.push({ ident: 'EmailView' })
   }
 
   render () {
     const search = (<Icon name="search" size={18} color={this.state.iconColor} />)
-
     console.log(this.props);
     return (
       <View style={{flex: 1}}>
@@ -40,8 +44,7 @@ class EmailListScreen extends Component {
         </View>
         <ListView
           dataSource={this.state.dataSource}
-          renderRow={this.renderEmailRow} />
-
+          renderRow={this.renderEmailRow.bind(this)} />
       </View>
     )
   }
@@ -51,7 +54,7 @@ class EmailListScreen extends Component {
 
     if (email.time === '14:39') {
       return (
-        <TouchableOpacity style={styles.container}>
+        <TouchableOpacity style={styles.container} onPress={this.navigateToEmail}>
           <FaIcon name="circle" size={18} color="#1cbd9d"/>
           <View style={styles.emailContainer}>
             <View style={styles.subjectContainer}>
