@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, Image, View } from 'react-native';
-import CustomStatusBar from './CustomStatusBar'
+import CustomStatusBar from '../components/CustomStatusBar';
 
-class Splash extends Component {
+class SplashScreen extends Component {
   constructor(props) {
     super(props);
     this.state = { loading: true };
@@ -38,4 +38,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Splash;
+export default SplashScreen;

@@ -3,22 +3,19 @@ import { StyleSheet, View, Text, StatusBar } from 'react-native';
 
 import AppNavigator from './navigation/AppNavigator';
 import CustomStatusBar from './components/CustomStatusBar';
-import Splash from './components/Splash';
-
-import EmailListScreen from './screens/EmailListScreen';
-import NewEmailScreen from './screens/NewEmailScreen';
+import SplashScreen from './screens/SplashScreen';
 
 class App extends Component {
 
 
   render () {
     return (
-      <Splash>
+      <SplashScreen>
         <View style={{flex:1}}>
           <CustomStatusBar />
           <AppNavigator />
         </View>
-      </Splash>
+      </SplashScreen>
     )
   }
 }
