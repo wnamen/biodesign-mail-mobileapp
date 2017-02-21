@@ -1,7 +1,7 @@
 'use strict'
 
 import React, { Component } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Image } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import FaIcon from 'react-native-vector-icons/FontAwesome';
@@ -11,7 +11,10 @@ class EmailRow extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <FaIcon name="circle" size={18} color="white"/>
+        <Image
+          style={{height: 55, width: 55}}
+          source={{uri: this.props.imageLink}}
+        />
         <View style={styles.emailContainer}>
           <View style={styles.subjectContainer}>
             <Text style={styles.subjectTextContainer}>{ this.props.subjectText }</Text>
@@ -30,7 +33,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 20,
+    paddingHorizontal: 15,
     paddingVertical: 10,
     borderBottomWidth: 0.75,
     borderBottomColor: 'rgba(0, 0, 0, 0.2)',
@@ -54,7 +57,6 @@ const styles = StyleSheet.create({
     color: "#9ca4ab",
     fontSize: 12,
     fontWeight: '300'
-
   },
   text: {
     textAlign: 'left',
