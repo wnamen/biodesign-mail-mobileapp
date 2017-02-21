@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, Image } from 'react-native';
+import { StyleSheet, Image, View } from 'react-native';
+import CustomStatusBar from './CustomStatusBar'
 
 class Splash extends Component {
   constructor(props) {
@@ -17,10 +18,13 @@ class Splash extends Component {
     return (
       this.state.loading ?
         (
-          <Image
-            style={styles.backgroundImage}
-            source={{uri: 'https://s3.invisionapp-cdn.com/storage.invisionapp.com/screens/files/219158000.png?x-amz-meta-iv=1&response-cache-control=max-age%3D2419200&x-amz-meta-ck=4e88b6c68ef725e1d7969b2374198f3c&AWSAccessKeyId=AKIAJFUMDU3L6GTLUDYA&Expires=1491004800&Signature=NoCMOJlSfbVaBHKo1NlaS6lCjWQ%3D'}}
-          />
+          <View style={{flex: 1}}>
+            <CustomStatusBar />
+            <Image
+              style={styles.backgroundImage}
+              source={{uri: 'https://s3.invisionapp-cdn.com/storage.invisionapp.com/screens/files/219158000.png?x-amz-meta-iv=1&response-cache-control=max-age%3D2419200&x-amz-meta-ck=4e88b6c68ef725e1d7969b2374198f3c&AWSAccessKeyId=AKIAJFUMDU3L6GTLUDYA&Expires=1491004800&Signature=NoCMOJlSfbVaBHKo1NlaS6lCjWQ%3D'}}
+            />
+          </View>
         )
         : ({...this.props.children})
     )

@@ -1,8 +1,8 @@
 'use strict'
 
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, ListView, Navigator, TouchableOpacity, TextInput } from 'react-native';
-import InboxNavBar from '../components/InboxNavBar'
+import { StyleSheet, View, Text, Navigator, TouchableOpacity } from 'react-native';
+import EmailNavBar from '../components/EmailNavBar';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import FaIcon from 'react-native-vector-icons/FontAwesome';
 

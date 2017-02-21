@@ -9,10 +9,10 @@ class NewEmailNavBar extends Component {
   render() {
     return (
       <View style={styles.navContainer}>
-        <TouchableOpacity style={styles.closeButton}>
+        <TouchableOpacity style={styles.closeButton} onPress={() => this.props.navigator.pop()}>
           <Text style={{color: '#525253', fontSize: 12, fontWeight: 'bold'}}>Close</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.sendButton}>
+        <TouchableOpacity style={styles.sendButton} onPress={() => this.props.navigator.pop()}>
           <Text style={{color: 'white', fontSize: 12, fontWeight: 'bold'}}>Send</Text>
         </TouchableOpacity>
       </View>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, StatusBar } from 'react-native';
 
+import AppNavigator from './navigation/AppNavigator';
 import CustomStatusBar from './components/CustomStatusBar';
 import Splash from './components/Splash';
 
@@ -13,9 +14,9 @@ class App extends Component {
   render () {
     return (
       <Splash>
-        <View>
+        <View style={{flex:1}}>
           <CustomStatusBar />
-          <NewEmailScreen />
+          <AppNavigator />
         </View>
       </Splash>
     )
@@ -23,17 +24,7 @@ class App extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  }
+
 });
 
 export default App;
