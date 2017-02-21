@@ -1,7 +1,7 @@
 'use strict'
 
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Navigator, TouchableOpacity } from 'react-native';
+import { StyleSheet, ScrollView, View, Text, Navigator, TouchableOpacity } from 'react-native';
 
 import EmailNavBar from '../components/EmailNavBar';
 import EmailRow from '../components/EmailRow';
@@ -17,33 +17,49 @@ class EmailScreen extends Component {
 
   render () {
     const image = (<View style={styles.imageContainer}><FaIcon name="picture-o" size={30} color='white' /></View>)
+    const reply = (<Icon name="reply" size={30} color="#9ca4ab" />)
+    const forward = (<Icon name="forward" size={30} color="#9ca4ab" />)
 
     return (
       <View style={{flex: 1}}>
         <EmailNavBar navigator={this.props.navigator}/>
-        <View style={styles.emailTitle}>
-          <Text style={styles.title}>We should grab some dinner tonight.</Text>
-        </View>
+        <ScrollView>
+          <View style={styles.emailTitle}>
+            <Text style={styles.title}>We should grab some dinner tonight.</Text>
+          </View>
 
-        <EmailRow
-          subjectText={'Matt Vickers'}
-          subjectTime={'14:39'}
-          emailText={'How do you feel about grabbing a burger tonight? I know a great place.'}
-          />
+          <EmailRow
+            subjectText={'Matt Vickers'}
+            subjectTime={'14:39'}
+            emailText={'How do you feel about grabbing a burger tonight? I know a great place.'}
+            />
 
-        <EmailRow
-          subjectText={'Billy Kiely'}
-          subjectTime={'8:14'}
-          emailText={'Is it that place that Jon was talking about earlier today?'}
-          />
+          <EmailRow
+            subjectText={'Billy Kiely'}
+            subjectTime={'8:14'}
+            emailText={'Is it that place that Jon was talking about earlier today?'}
+            />
 
-        <View style={styles.attachmentTitleContainer}>
-          <Text style={styles.attachmentTitle}>1 Attachment</Text>
-        </View>
+          <View style={styles.attachmentTitleContainer}>
+            <Text style={styles.attachmentTitle}>1 Attachment</Text>
+          </View>
 
-        <View style={styles.attachmentContainer}>
-          { image }
-          <Text style={styles.attachmentText}>burger-week-2013.jpg</Text>
+          <View style={styles.attachmentContainer}>
+            { image }
+            <Text style={styles.attachmentText}>burger-week-2013.jpg</Text>
+          </View>
+
+
+        </ScrollView>
+        <View style={styles.tabBar}>
+          <TouchableOpacity style={styles.tab}>
+            { reply }
+            <Text style={styles.tabText}>Reply</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.tab}>
+            <Text style={styles.tabText}>Forward</Text>
+            { forward }
+          </TouchableOpacity>
         </View>
 
       </View>
@@ -96,6 +112,24 @@ var styles = StyleSheet.create({
     color: '#1E90FF',
     textAlign: 'left',
     paddingLeft: 15
+  },
+  tabBar: {
+    flexDirection: 'row',
+    backgroundColor: "#fafafa",
+  },
+  tab: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 50,
+    paddingVertical: 20,
+    borderWidth: 1,
+    borderColor: 'rgba(0, 0, 0, 0.1)',
+  },
+  tabText: {
+    color: '#9ca4ab',
+    fontSize: 15,
+    paddingHorizontal: 10
   }
 });
 

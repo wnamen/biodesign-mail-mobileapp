@@ -14,9 +14,9 @@ class EmailNavBar extends Component {
   }
 
   render() {
-    const download = (<TouchableOpacity style={styles.navButtons}><Icon name="file-download" size={25} color="#525253" /></TouchableOpacity>)
-    const trash = (<TouchableOpacity style={styles.navButtons}><Icon name="delete" size={25} color="#525253" /></TouchableOpacity>)
-    const more = (<TouchableOpacity style={styles.navButtons}><Icon name="keyboard-arrow-down" size={25} color="#525253" /></TouchableOpacity>)
+    const download = (<TouchableOpacity style={styles.navButtons}><Icon name="file-download" size={25} color="#9ca4ab" /></TouchableOpacity>)
+    const trash = (<TouchableOpacity style={styles.navButtons}><Icon name="delete" size={25} color="#9ca4ab" /></TouchableOpacity>)
+    const more = (<TouchableOpacity style={styles.navButtons}><Icon name="keyboard-arrow-down" size={25} color="#9ca4ab" /></TouchableOpacity>)
 
     return (
       <View style={styles.navContainer}>
