@@ -15,19 +15,29 @@ class EmailAttachmentScreen extends Component {
   }
 
   render () {
-    const image = (<View style={styles.imageContainer}><FaIcon name="picture-o" size={30} color='white' /></View>);
+    const download = (<TouchableOpacity style={styles.navButtons}><Icon name="file-download" size={25} color='#525253' /></TouchableOpacity>)
+    const replay = (<TouchableOpacity style={styles.navButtons}><Icon name="replay" size={25} color='#525253' /></TouchableOpacity>)
+    const chevronLeft = (<TouchableOpacity style={styles.navButtons}><Icon name="chevron-left" size={35} color="#9ca4ab" /></TouchableOpacity>)
+    const chevronRight = (<TouchableOpacity style={styles.navButtons}><Icon name="chevron-right" size={35} color="#9ca4ab" /></TouchableOpacity>)
 
     return (
       <View style={{flex: 1}}>
         <EmailAttachmentNavBar navigator={this.props.navigator}/>
-        <ScrollView>
-          <Image
-            style={{height: 500, width: 500}}
-            source={require('../images/burgerweekimage.png')}
-            />
+        <ScrollView style={styles.imageContainer} contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}>
+              <Image
+                style={styles.attachment}
+                source={require('../images/burgerweekimage.png')}
+                resizeMode='center'
+                />
         </ScrollView>
-        <View>
+        <View style={styles.tabBar}>
+          <View style={styles.leftTab}>
+            { chevronLeft }
+            { chevronRight }
+            { replay }
+          </View>
 
+          { download }
         </View>
       </View>
     )
@@ -35,7 +45,26 @@ class EmailAttachmentScreen extends Component {
 }
 
 var styles = StyleSheet.create({
+  imageContainer: {
+    flex: 2,
+    padding: 10,
+    backgroundColor: "#f4f4f4",
+  },
+  tabBar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: "#fafafa",
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(0, 0, 0, 0.1)',
+  },
+  leftTab: {
+    flexDirection: 'row',
+    alignItems: 'center',
 
+  }
 });
 
 export default EmailAttachmentScreen;
