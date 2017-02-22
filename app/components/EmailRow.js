@@ -2,17 +2,18 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
-
+import styles from '../styles/EmailRow';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import FaIcon from 'react-native-vector-icons/FontAwesome';
 
 class EmailRow extends Component {
 
+  // renders the row for each email within the email chain
   render() {
     return (
       <View style={styles.container}>
         <Image
-          style={{height: 55, width: 55}}
+          style={styles.profilePicture}
           source={{uri: this.props.imageLink}}
         />
         <View style={styles.emailContainer}>
@@ -25,46 +26,6 @@ class EmailRow extends Component {
       </View>
     )
   }
-
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: 15,
-    paddingVertical: 10,
-    borderBottomWidth: 0.75,
-    borderBottomColor: 'rgba(0, 0, 0, 0.2)',
-  },
-  emailContainer: {
-    width: 270
-  },
-  subjectContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingBottom: 5
-  },
-  subjectTextContainer: {
-    textAlign: 'left',
-    fontWeight: 'bold',
-    fontSize: 16,
-    color: "#525253"
-  },
-  subjectTimeContainer: {
-    textAlign: 'right',
-    color: "#9ca4ab",
-    fontSize: 12,
-    fontWeight: '300'
-  },
-  text: {
-    textAlign: 'left',
-    fontSize: 12,
-    fontWeight: '400',
-    color: '#525253',
-    lineHeight: 20
-  }
-})
 
 export default EmailRow;

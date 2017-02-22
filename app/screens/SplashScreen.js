@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Image, View } from 'react-native';
 import CustomStatusBar from '../components/CustomStatusBar';
+import styles from '../styles/SplashScreen';
 
 class SplashScreen extends Component {
   constructor(props) {
@@ -30,12 +31,5 @@ class SplashScreen extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  backgroundImage: {
-    flex: 1,
-    resizeMode: 'cover'
-  }
-});
 
 export default SplashScreen;

@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { StyleSheet, ScrollView, View, Text, TouchableOpacity, Image } from 'react-native';
 
 import EmailAttachmentNavBar from '../components/EmailAttachmentNavBar';
+import styles from '../styles/EmailAttachmentScreen';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import FaIcon from 'react-native-vector-icons/FontAwesome';
@@ -43,28 +44,5 @@ class EmailAttachmentScreen extends Component {
     )
   }
 }
-
-var styles = StyleSheet.create({
-  imageContainer: {
-    flex: 2,
-    padding: 10,
-    backgroundColor: "#f4f4f4",
-  },
-  tabBar: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: "#fafafa",
-    paddingVertical: 10,
-    paddingHorizontal: 10,
-    borderTopWidth: 1,
-    borderTopColor: 'rgba(0, 0, 0, 0.1)',
-  },
-  leftTab: {
-    flexDirection: 'row',
-    alignItems: 'center',
-
-  }
-});
 
 export default EmailAttachmentScreen;

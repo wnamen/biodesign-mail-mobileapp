@@ -1,29 +1,18 @@
-
 'use strict'
 
 import React, { Component } from 'react';
 import { View, StyleSheet, StatusBar } from 'react-native';
+import styles from '../styles/CustomStatusBar';
 
 class CustomStatusBar extends Component {
-
+  // renders black status bar with white icons
   render() {
     return (
       <View style={styles.statusBarBackground}>
-        <StatusBar
-          barStyle="light-content" />
+        <StatusBar barStyle="light-content" />
       </View>
     )
   }
-
 }
-
-const styles = StyleSheet.create({
-
-  statusBarBackground: {
-    height: 20,
-    backgroundColor: "black"
-  }
-
-})
 
 export default CustomStatusBar;
