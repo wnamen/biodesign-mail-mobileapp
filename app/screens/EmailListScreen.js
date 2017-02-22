@@ -39,7 +39,7 @@ class EmailListScreen extends Component {
         content={<MenuDrawer />}
         open={this.state.openDrawer}
         tapToClose={true}
-        openDrawerOffset={0.2} // 20% gap on the right side of drawer
+        openDrawerOffset={0.2}
         panCloseMask={0.2}
         closedDrawerOffset={-3} >
         <View style={{flex: 1}}>
