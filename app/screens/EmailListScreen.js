@@ -5,7 +5,6 @@ import { StyleSheet, View, Text, ListView, Navigator, TouchableOpacity, TextInpu
 import InboxNavBar from '../components/InboxNavBar';
 import MenuDrawer from '../components/MenuDrawer';
 import styles from '../styles/EmailListScreen';
-
 import Drawer from 'react-native-drawer';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import FaIcon from 'react-native-vector-icons/FontAwesome';
@@ -26,22 +25,25 @@ class EmailListScreen extends Component {
     this.navigateToEmail = this.navigateToEmail.bind(this);
   }
 
+  // navigates to the Email View screen
   navigateToEmail = () => {
     this.props.navigator.push({ ident: 'EmailView' })
   }
 
+  // handles drawer view
   handleDrawer = () => {
     this.setState({openDrawer: !this.state.openDrawer})
   }
 
+  // handles delete button
   handleDeleteButton = () => {
     this.setState({
       showDelete: !this.state.showDelete
     })
   }
 
+  // renders the Email List Screen
   render () {
-    const search = (<Icon name="search" size={18} color={this.state.iconColor} />)
     return (
       <Drawer
         type="displace"
@@ -55,7 +57,7 @@ class EmailListScreen extends Component {
         <View style={{flex: 1}}>
           <InboxNavBar navigator={this.props.navigator} handleDrawer={this.handleDrawer}/>
           <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', backgroundColor: "#fafafa"}}>
-            { search }
+            <Icon name="search" size={18} color={this.state.iconColor} />
             <TextInput
               style={{height: 40, width: 300}}
               placeholder='Search'

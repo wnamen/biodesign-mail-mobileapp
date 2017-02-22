@@ -28,6 +28,11 @@ export default StyleSheet.create({
     borderBottomWidth: 0.75,
     borderBottomColor: '#d6d7da',
   },
+  closeText: {
+    color: '#525253',
+    fontSize: 12,
+    fontWeight: 'bold'
+  },
   sendButton: {
     backgroundColor: "#1cbd9d",
     paddingHorizontal: 17,
@@ -35,5 +40,10 @@ export default StyleSheet.create({
     borderColor: 'black',
     borderRadius: 3,
     shadowColor: 'gray',
+  },
+  sendText: {
+    color: 'white',
+    fontSize: 12,
+    fontWeight: 'bold'
   }
 })

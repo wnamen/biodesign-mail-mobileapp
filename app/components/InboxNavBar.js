@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 class InboxNavBar extends Component {
 
+  // navigates to the New Email Screen
   navigateToNewEmail = () => {
     this.props.navigator.push({
       ident: "NewEmail",
@@ -14,6 +15,7 @@ class InboxNavBar extends Component {
     })
   }
 
+  // renders the Nav Bar for the Inbox View
   render() {
     return (
       <View style={styles.navContainer}>

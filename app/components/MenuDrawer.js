@@ -3,21 +3,16 @@
 import React, { Component } from 'react';
 import { StyleSheet, ScrollView, View, Text, Image } from 'react-native';
 import styles from '../styles/MenuDrawer';
-
 import Drawer from 'react-native-drawer';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import FaIcon from 'react-native-vector-icons/FontAwesome';
 
 class MenuDrawer extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+  // renders the static drawer view
   render() {
-
     return (
       <ScrollView style={styles.container}>
-
+        
         <Text style={styles.sectionTitles}>MAILBOXES</Text>
         <View style={styles.contentContainer}>
           <View style={styles.contentSelectedRowContainer}>
@@ -88,7 +83,6 @@ class MenuDrawer extends Component {
       </ScrollView>
     )
   }
-
 }
 
 export default MenuDrawer;
