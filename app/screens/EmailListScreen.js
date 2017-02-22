@@ -35,10 +35,11 @@ class EmailListScreen extends Component {
     const search = (<Icon name="search" size={18} color={this.state.iconColor} />)
     return (
       <Drawer
-        type="static"
+        type="displace"
         content={<MenuDrawer />}
         open={this.state.openDrawer}
         tapToClose={true}
+        onClose={()=> this.setState({openDrawer: false})}
         openDrawerOffset={0.2}
         panCloseMask={0.2}
         closedDrawerOffset={-3} >
