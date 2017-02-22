@@ -16,6 +16,7 @@ class EmailListScreen extends Component {
     var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1.id != r2.id})
     this.state = {
       dataSource: ds.cloneWithRows(data),
+      showDelete: false,
       openDrawer: false,
       iconColor: '#9ca4ab'
     }
@@ -29,6 +30,12 @@ class EmailListScreen extends Component {
 
   handleDrawer = () => {
     this.setState({openDrawer: !this.state.openDrawer})
+  }
+
+  handleDeleteButton = () => {
+    this.setState({
+      showDelete: !this.state.showDelete
+    })
   }
 
   render () {
@@ -86,7 +93,7 @@ class EmailListScreen extends Component {
       )
     } else if (email.time === '8:14') {
       return (
-        <TouchableOpacity style={styles.container}>
+        <TouchableOpacity style={styles.container} onPress={this.handleDeleteButton}>
           <FaIcon name="circle" size={18} color="#1cbd9d"/>
           <View style={styles.emailContainer}>
             <View style={styles.subjectContainer}>
@@ -96,6 +103,12 @@ class EmailListScreen extends Component {
             <Text style={styles.text2Container}>{email.subject}</Text>
             <Text style={styles.textContainer}>{email.text}</Text>
           </View>
+
+          {this.state.showDelete ? (<View style={styles.emailDeleteContainer}>
+            <TouchableOpacity style={styles.emailDeleteButton}>
+              <Text style={styles.emailDeleteText}>Delete</Text>
+            </TouchableOpacity>
+          </View>) : (<View style={{position: 'absolute'}}></View>)}
 
         </TouchableOpacity>
       )
@@ -127,6 +140,7 @@ var styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white',
     paddingHorizontal: 15,
+    paddingLeft: 25,
     paddingVertical: 15,
     borderTopWidth: 0.5,
     borderTopColor: 'rgba(0, 0, 0, 0.2)',
@@ -144,14 +158,15 @@ var styles = StyleSheet.create({
   subjectContainer: {
     flex: 1,
     flexDirection: 'row',
-    flexWrap: 'nowrap'
+    flexWrap: 'nowrap',
+    paddingBottom: 5,
   },
   subjectTextContainer: {
     flex: 1,
     textAlign: 'left',
     fontWeight: '400',
     fontSize: 15,
-    color: "#525253"
+    color: "#525253",
   },
   subjectTimeContainer: {
     flex: 1,
@@ -165,7 +180,8 @@ var styles = StyleSheet.create({
     textAlign: 'left',
     fontSize: 12,
     fontWeight: '400',
-    color: '#525253'
+    color: '#525253',
+    lineHeight: 20,
   },
   subjectText2Container: {
     flex: 1,
@@ -188,6 +204,25 @@ var styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#525253'
   },
+  emailDeleteContainer: {
+    position: 'absolute',
+    backgroundColor: ['transparent', 'rgba(255, 255, 255, 0.9)'],
+    borderRadius:5,
+    padding: 15,
+    paddingLeft: 101,
+    right: 2,
+    top: 10,
+  },
+  emailDeleteButton: {
+    backgroundColor: '#e14646',
+    padding: 10,
+    borderRadius: 5,
+  },
+  emailDeleteText: {
+    color: 'white',
+    fontSize: 12,
+    fontWeight: 'bold'
+  }
 });
 
 export default EmailListScreen;
