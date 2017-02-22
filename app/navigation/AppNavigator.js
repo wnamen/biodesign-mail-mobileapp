@@ -10,10 +10,8 @@ import EmailAttachmentScreen from '../screens/EmailAttachmentScreen';
 
 class AppNavigator extends Component {
 
-
+  // renders the specific screen based on the route passed to the stack
   renderScene(route, navigator) {
-
-    console.log(route);
     var globalNavigatorProps = { navigator }
 
     switch(route.ident) {

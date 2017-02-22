@@ -24,6 +24,10 @@ export default StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 10,
   },
+  emailLabel: {
+    color: '#9ca4ab', 
+    fontSize: 15
+  },
   addressBookContainer: {
     backgroundColor: '#fafafa',
     flexDirection: 'column',

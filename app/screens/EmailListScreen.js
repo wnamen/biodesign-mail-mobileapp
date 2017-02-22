@@ -78,6 +78,7 @@ class EmailListScreen extends Component {
     )
   }
 
+  // renders each email row from the view
   renderEmailRow(email) {
     const attachment = (<FaIcon name="paperclip" size={15} color="#525253" />)
 

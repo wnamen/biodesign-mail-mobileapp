@@ -9,12 +9,14 @@ class SplashScreen extends Component {
     this.state = { loading: true };
   }
 
+  // removes the splash screen after 3 seconds
   componentDidMount = () => {
     setTimeout(() => {
       this.setState({ loading: false })
     }, 3000)
   }
 
+  // renders the Splash Screen
   render = () => {
     return (
       this.state.loading ?

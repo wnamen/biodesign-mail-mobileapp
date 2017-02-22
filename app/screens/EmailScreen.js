@@ -15,10 +15,12 @@ class EmailScreen extends Component {
     super(props)
   }
 
+  // navigates to the email attachment
   navigateToAttachment = () => {
     this.props.navigator.push({ ident: 'EmailAttachment' })
   }
 
+  // renders the current email screen
   render () {
     const image = (<View style={styles.imageContainer}><FaIcon name="picture-o" size={30} color='white' /></View>);
     const currentEmailReply = (<Icon name="reply" size={23} color="#9ca4ab" />);

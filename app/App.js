@@ -6,8 +6,7 @@ import CustomStatusBar from './components/CustomStatusBar';
 import SplashScreen from './screens/SplashScreen';
 
 class App extends Component {
-
-
+  // renders an application with the splash screen as the layout and the app on top of it.
   render () {
     return (
       <SplashScreen>
@@ -19,9 +18,5 @@ class App extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-
-});
 
 export default App;

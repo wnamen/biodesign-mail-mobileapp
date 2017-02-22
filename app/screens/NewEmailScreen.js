@@ -17,6 +17,7 @@ class NewEmailScreen extends Component {
     };
   }
 
+  // opens and closes the address book
   handleAddressBook = () => {
     let icon;
     this.state.icon === 'plus' ? icon = 'minus' : icon = 'plus';
@@ -27,6 +28,7 @@ class NewEmailScreen extends Component {
     })
   }
 
+  // renders a blank email template
   render () {
     const attachment = (<FaIcon name="paperclip" size={18} color='#9ca4ab' />)
 
@@ -36,7 +38,7 @@ class NewEmailScreen extends Component {
         <View style={styles.container}>
 
           <View style={styles.emailDetailFields}>
-            <Text style={{color: '#9ca4ab', fontSize: 15}}>To:</Text>
+            <Text style={styles.emailLabel}>To:</Text>
             <TextInput
               style={{width: 290}}
               color="#525253"
@@ -74,7 +76,7 @@ class NewEmailScreen extends Component {
           </View>) : (<View></View>)}
 
           <View style={styles.emailDetailFields}>
-            <Text style={{color: '#9ca4ab', fontSize: 15}}>Cc/Bcc:</Text>
+            <Text style={styles.emailLabel}>Cc/Bcc:</Text>
             <TextInput
               style={{width: 290}}
               color="#525253"
@@ -85,7 +87,7 @@ class NewEmailScreen extends Component {
           </View>
 
           <View style={styles.emailDetailFields}>
-            <Text style={{color: '#9ca4ab', fontSize: 15}}>Subject:</Text>
+            <Text style={styles.emailLabel}>Subject:</Text>
             <TextInput
               style={{width: 260}}
               color="#525253"
