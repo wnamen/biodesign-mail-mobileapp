@@ -2,7 +2,9 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, ListView, Navigator, TouchableOpacity, TextInput } from 'react-native';
-import InboxNavBar from '../components/InboxNavBar'
+import InboxNavBar from '../components/InboxNavBar';
+import MenuDrawer from '../components/MenuDrawer';
+import Drawer from 'react-native-drawer';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import FaIcon from 'react-native-vector-icons/FontAwesome';
 
@@ -14,8 +16,10 @@ class EmailListScreen extends Component {
     var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1.id != r2.id})
     this.state = {
       dataSource: ds.cloneWithRows(data),
+      openDrawer: false,
       iconColor: '#9ca4ab'
     }
+    this.handleDrawer = this.handleDrawer.bind(this);
     this.navigateToEmail = this.navigateToEmail.bind(this);
   }
 
@@ -23,29 +27,42 @@ class EmailListScreen extends Component {
     this.props.navigator.push({ ident: 'EmailView' })
   }
 
+  handleDrawer = () => {
+    this.setState({openDrawer: !this.state.openDrawer})
+  }
+
   render () {
     const search = (<Icon name="search" size={18} color={this.state.iconColor} />)
-    console.log(this.props);
     return (
-      <View style={{flex: 1}}>
-        <InboxNavBar navigator={this.props.navigator}/>
-        <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', backgroundColor: "#fafafa"}}>
-          { search }
-          <TextInput
-            style={{height: 40, width: 300}}
-            placeholder='Search'
-            color="#525253"
-            fontSize={15}
-            onFocus={(e) => this.setState({iconColor: '#2A9FD8'})}
-            onBlur={(e) => this.setState({iconColor: '#9ca4ab'})}
-            onChangeText={(text) => this.setState({text})}
-            value={this.state.text}
-            />
+      <Drawer
+        type="static"
+        content={<MenuDrawer />}
+        open={this.state.openDrawer}
+        tapToClose={true}
+        openDrawerOffset={0.2} // 20% gap on the right side of drawer
+        panCloseMask={0.2}
+        closedDrawerOffset={-3} >
+        <View style={{flex: 1}}>
+          <InboxNavBar navigator={this.props.navigator} handleDrawer={this.handleDrawer}/>
+          <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', backgroundColor: "#fafafa"}}>
+            { search }
+            <TextInput
+              style={{height: 40, width: 300}}
+              placeholder='Search'
+              color="#525253"
+              fontSize={15}
+              onFocus={(e) => this.setState({iconColor: '#2A9FD8'})}
+              onBlur={(e) => this.setState({iconColor: '#9ca4ab'})}
+              onChangeText={(text) => this.setState({text})}
+              value={this.state.text}
+              />
+          </View>
+          <ListView
+            dataSource={this.state.dataSource}
+            renderRow={this.renderEmailRow.bind(this)} />
         </View>
-        <ListView
-          dataSource={this.state.dataSource}
-          renderRow={this.renderEmailRow.bind(this)} />
-      </View>
+      </Drawer>
+
     )
   }
 

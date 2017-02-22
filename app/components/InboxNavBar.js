@@ -14,9 +14,10 @@ class InboxNavBar extends Component {
   }
 
   render() {
-    const drawer = (<TouchableOpacity style={styles.drawerButton}><Icon name="menu" size={30} color="#525253" /></TouchableOpacity>)
+    const drawer = (<TouchableOpacity style={styles.drawerButton} onPress={() => {this.props.handleDrawer()}}><Icon name="menu" size={30} color="#525253" /></TouchableOpacity>)
     const pencil = (<TouchableOpacity style={styles.pencilButton} onPress={this.navigateToNewEmail}><Icon name="pencil" size={30} color="white"/></TouchableOpacity>)
 
+    console.log(this.props);
     return (
       <View style={styles.navContainer}>
         {drawer}
