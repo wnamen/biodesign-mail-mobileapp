@@ -124,6 +124,7 @@ var styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    backgroundColor: 'white',
     paddingHorizontal: 15,
     paddingVertical: 15,
     borderTopWidth: 0.5,
