@@ -15,7 +15,7 @@ class EmailAttachmentScreen extends Component {
   // renders email attachment screen
   render () {
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: 1, backgroundColor: 'white'}}>
         <EmailAttachmentNavBar navigator={this.props.navigator}/>
         <ScrollView style={styles.imageContainer} contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}>
               <Image

@@ -1,7 +1,7 @@
 'use strict'
 
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, ListView, Navigator, TouchableOpacity, TextInput } from 'react-native';
+import { AppState, AlertIOS, PushNotificationIOS, StyleSheet, View, Text, ListView, Navigator, TouchableOpacity, TextInput } from 'react-native';
 import InboxNavBar from '../components/InboxNavBar';
 import MenuDrawer from '../components/MenuDrawer';
 import styles from '../styles/EmailListScreen';
@@ -23,6 +23,54 @@ class EmailListScreen extends Component {
     }
     this.handleDrawer = this.handleDrawer.bind(this);
     this.navigateToEmail = this.navigateToEmail.bind(this);
+    this.sendEmailNotification = this.sendEmailNotification.bind(this);
+    this.onEmailNotification = this.onEmailNotification.bind(this);
+  }
+
+  componentWillMount = () => {
+    PushNotificationIOS.addEventListener('notification', this.onEmailNotification);
+    AppState.addEventListener('change', this.handleAppStateChange);
+  }
+
+  componentDidMount = () => {
+    PushNotificationIOS.scheduleLocalNotification({
+      fireDate: Date.now(),
+      alertBody: 'You have received 1 new email!'
+    })
+  }
+
+  componentWillUnmount = () => {
+    PushNotificationIOS.removeEventListener('notification', this.onEmailNotification);
+    AppState.removeEventListener('change', this.handleAppStateChange);
+  }
+
+  handleAppStateChange = (appState) => {
+    console.log(appState);
+    if (appState === 'background') {
+      this.sendEmailNotification();
+    }
+  }
+
+  sendEmailNotification = () => {
+    require('RCTDeviceEventEmitter').emit('remoteNotificationReceived', {
+      aps: {
+        alert: 'Email Sent!',
+        badge: '+1',
+        sound: 'default',
+        category: 'REACT_NATIVE'
+      },
+    });
+  }
+
+  onEmailNotification = (notification) =>{
+    AlertIOS.alert(
+      'You have received 1 new email!',
+      '',
+      [{
+        text: 'View',
+        onPress: () => this.navigateToEmail(),
+      }]
+    );
   }
 
   // navigates to the Email View screen

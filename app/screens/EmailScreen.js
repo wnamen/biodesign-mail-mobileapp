@@ -29,7 +29,7 @@ class EmailScreen extends Component {
     const more = (<TouchableOpacity><Icon name="more-horiz" size={30} color="#9ca4ab" backgroundColor="#9ca4ab"/></TouchableOpacity>);
 
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: 1, backgroundColor: 'white'}}>
         <EmailNavBar navigator={this.props.navigator}/>
         <ScrollView>
           <View style={styles.emailTitle}>

@@ -33,7 +33,7 @@ class NewEmailScreen extends Component {
     const attachment = (<FaIcon name="paperclip" size={18} color='#9ca4ab' />)
 
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: 1, backgroundColor: 'white'}}>
         <NewEmailNavBar navigator={this.props.navigator}/>
         <View style={styles.container}>
 
